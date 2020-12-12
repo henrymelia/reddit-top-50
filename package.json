@@ -1,0 +1,11 @@
+{
+  "name": "reddit-top-50",
+  "version": "0.0.1",
+  "main": "src/components/App.js",
+  "scripts": {
+    "dev": "echo \"dev task\" && exit 1",
+    "test": "echo \"test task\" && exit 1",
+    "build": "echo \"buid task\" && exit 1"
+  },
+  "license": "MIT"
+}
