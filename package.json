@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "main": "src/components/App.js",
   "scripts": {
-    "dev": "echo \"dev task\" && exit 1",
+    "dev": "parcel src/index.html",
     "test": "echo \"test task\" && exit 1",
-    "build": "echo \"buid task\" && exit 1"
+    "build": "parcel build src/index.html --no-source-maps"
   },
   "license": "MIT",
   "devDependencies": {
