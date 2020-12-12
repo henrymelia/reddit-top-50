@@ -7,5 +7,12 @@
     "test": "echo \"test task\" && exit 1",
     "build": "echo \"buid task\" && exit 1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "react": "17",
+    "react-dom": "17"
+  }
 }
