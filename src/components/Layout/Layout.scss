@@ -1,0 +1,43 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.content {
+  display: flex;
+  flex-flow: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding: 1rem;
+  background: #eee;
+  @include transitionAll();
+
+  &.is-full-width {
+    margin-left: -$sidebarSize;
+  }
+
+  @media only screen and (min-width: $singleColumnBreakpoint) {
+		&.is-full-width {
+      margin-left: -$sidebarSize;
+    }
+	}
+}
+
+.sidebar {
+  display: block;
+  flex: 1 0 100%;
+  background: white;
+  height: 100%;
+  overflow: scroll;
+
+  @media only screen and (min-width: $singleColumnBreakpoint) {
+		flex-basis: $sidebarSize;
+	}
+
+  &.is-collapsed {
+    transform: translateX(-100%);
+  }
+
+  h1 {
+    text-align: center;
+  }
+}
