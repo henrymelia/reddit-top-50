@@ -1,10 +1,6 @@
-const initialState = {};
+import { combineReducers } from "redux";
+import postsReducer from "./posts-reducer";
 
-const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-};
+const rootReducer = combineReducers({ posts: postsReducer });
 
 export default rootReducer;
