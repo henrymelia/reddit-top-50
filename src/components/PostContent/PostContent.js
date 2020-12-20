@@ -27,8 +27,6 @@ const PostContent = ({ post, markPostAsReaded, ...otherProps }) => {
     return <section className="noPostSelectedMsg">👈 Pick a post</section>;
   }
 
-  console.log("selected: ", post);
-
   const { author, createdUTC, title } = post;
 
   useEffect(() => {

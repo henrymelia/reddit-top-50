@@ -42,8 +42,7 @@ const SideBar = ({ onHideSidebar, ...props }) => {
   ) : (
     <PostList>
       {posts.map((post) => {
-        const { id, readed, type } = post;
-        console.log("type: ", type);
+        const { id, readed } = post;
         return (
           <PostListItem
             key={id}
