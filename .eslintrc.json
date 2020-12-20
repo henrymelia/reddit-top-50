@@ -6,7 +6,10 @@
     "prettier/react"
   ],
   "rules": {
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "no-plusplus": "off"
   },
   "parser": "babel-eslint",
   "env": {
