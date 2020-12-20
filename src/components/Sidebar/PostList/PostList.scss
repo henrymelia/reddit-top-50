@@ -1,0 +1,41 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+
+    a {
+      display: flex;
+      flex-direction: row;
+      padding: 1rem 0.5rem;
+
+      &:hover {
+        background-color: chartreuse;
+        cursor: pointer;
+      }
+
+      figure {
+        display: block;
+        margin: 0;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex: 1;
+        padding: 0 0.5rem;
+
+        h2 {
+          display: inline;
+          font-size: 1.2rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
