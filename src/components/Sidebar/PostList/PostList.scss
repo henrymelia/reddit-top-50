@@ -30,6 +30,12 @@ ul {
         flex: 1;
         padding: 0 0.5rem;
 
+        small {
+          span {
+            word-break: break-all;
+          }
+        }
+
         h2 {
           display: inline;
           font-size: 1.2rem;

@@ -12,7 +12,7 @@
   @include transitionAll();
 
   &.is-full-width {
-    margin-left: -$sidebarSize;
+    margin-left: -$singleColumnBreakpoint;
   }
 
   @media only screen and (min-width: $singleColumnBreakpoint) {
