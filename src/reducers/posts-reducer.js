@@ -14,7 +14,6 @@ const initialState = {
   pending: false,
   error: null,
   selectedPost: null,
-  readed: false,
 };
 
 const postsReducer = (state = initialState, action) => {
