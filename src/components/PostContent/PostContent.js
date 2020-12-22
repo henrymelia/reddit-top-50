@@ -7,11 +7,11 @@ import ImagePost from "../ImagePost";
 import "./PostContent.scss";
 
 const getPostContent = (post) => {
-  const { thumbnail, type, url } = post;
+  const { thumbnail, title, type, url } = post;
 
   switch (type) {
     case "image":
-      return url ? <ImagePost key={url} imageUrl={url} /> : null;
+      return url ? <ImagePost key={url} alt={title} imageUrl={url} /> : null;
     case "link":
       return (
         <a href={url} target="_blank" rel="noreferrer">

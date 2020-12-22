@@ -93,7 +93,9 @@ const postsReducer = (state = initialState, action) => {
         postList: state.postList.map((post) =>
           post.id === action.payload.id ? { ...post, readed: true } : post
         ),
-        readedIdList: [...state.readedIdList, action.payload.id],
+        readedIdList: state.readedIdList.includes(action.payload.id)
+          ? state.readedIdList
+          : [...state.readedIdList, action.payload.id],
       };
     case DISMISS_ALL_POSTS:
       return {
