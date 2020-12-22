@@ -13,7 +13,34 @@ const initialState = {
   postList: [],
   pending: false,
   error: null,
+  readedIdList: [],
   selectedPost: null,
+};
+
+const filterDismissed = (posts, dismissedPostIds) => {
+  const dismissedPostsSet = new Set(dismissedPostIds);
+  return posts.filter(({ id }) => !dismissedPostsSet.has(id));
+};
+
+const markReaded = (posts, readedPostIds) => {
+  const readedPostsSet = new Set(readedPostIds);
+  return posts.map((post) => ({
+    ...post,
+    readed: readedPostsSet.has(post.id),
+  }));
+};
+
+const getReadedAndDismissedCleaned = (
+  posts,
+  readedPostIds,
+  dismissedPostIds
+) => {
+  const postsSet = new Set(posts.map(({ id }) => id));
+  const predicate = (id) => postsSet.has(id);
+  return {
+    readedIdList: readedPostIds.filter(predicate),
+    dismissedIdList: dismissedPostIds.filter(predicate),
+  };
 };
 
 const postsReducer = (state = initialState, action) => {
@@ -27,7 +54,15 @@ const postsReducer = (state = initialState, action) => {
       return {
         ...state,
         pending: false,
-        postList: action.payload,
+        postList: markReaded(
+          filterDismissed(action.payload, state.dismissedIdList),
+          state.readedIdList
+        ),
+        ...getReadedAndDismissedCleaned(
+          action.payload,
+          state.readedIdList,
+          state.dismissedIdList
+        ),
       };
     case FETCH_POSTS_ERROR:
       return {
@@ -58,6 +93,7 @@ const postsReducer = (state = initialState, action) => {
         postList: state.postList.map((post) =>
           post.id === action.payload.id ? { ...post, readed: true } : post
         ),
+        readedIdList: [...state.readedIdList, action.payload.id],
       };
     case DISMISS_ALL_POSTS:
       return {
