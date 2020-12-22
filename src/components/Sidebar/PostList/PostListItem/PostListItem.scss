@@ -5,6 +5,12 @@ li {
     opacity: 0.5;
   }
 
+  &.selectedPost {
+    a {
+      background-color: deepskyblue;
+    }
+  }
+
   a {
     display: flex;
     flex-direction: row;

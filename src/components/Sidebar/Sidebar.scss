@@ -1,0 +1,15 @@
+.topButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+
+  .closeSidebarButton {
+    font-size: 1.5rem;
+    padding: 0.6rem;
+    background: none;
+    border: none;
+  }
+
+  .dimissAllButton {
+    margin: 0.8rem;
+  }
+}

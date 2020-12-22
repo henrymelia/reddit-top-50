@@ -12,6 +12,8 @@ import PostList from "./PostList/PostList";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import PostListItem from "./PostList/PostListItem";
 
+import "./Sidebar.scss";
+
 const singleColMediaQuery = "(max-width: 60rem)";
 
 const Sidebar = ({ onHideSidebar, ...props }) => {
@@ -51,7 +53,10 @@ const Sidebar = ({ onHideSidebar, ...props }) => {
               post={post}
               onPostSelect={onPostSelect}
               onPostDismiss={onPostDismiss}
-              className={classNames({ readed })}
+              className={classNames({
+                readed,
+                selectedPost: selectedPost.id === post.id,
+              })}
             />
           );
         })}
@@ -70,13 +75,24 @@ const Sidebar = ({ onHideSidebar, ...props }) => {
   return (
     <aside {...props}>
       <header>
-        <button type="button" style={{ float: "left" }} onClick={onHideSidebar}>
-          ✖️
-        </button>
+        <div className="topButtonsContainer">
+          <button
+            type="button"
+            onClick={onHideSidebar}
+            className="closeSidebarButton"
+          >
+            ✖️
+          </button>
+          <button
+            type="button"
+            onClick={onDismissAll}
+            className="dimissAllButton"
+          >
+            Dismiss All
+          </button>
+        </div>
+
         <h1>Top Posts {isSingleColumnMode ? "(SC)" : "(DC)"}</h1>
-        <button type="button" onClick={onDismissAll}>
-          Dismiss All
-        </button>
       </header>
       {mainContent}
     </aside>
