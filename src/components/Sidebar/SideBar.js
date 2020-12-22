@@ -11,6 +11,7 @@ import {
 import PostList from "./PostList/PostList";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import PostListItem from "./PostList/PostListItem";
+import NoPostsNotification from "./NoPostsNotification";
 
 import "./Sidebar.scss";
 
@@ -55,19 +56,14 @@ const Sidebar = ({ onHideSidebar, ...props }) => {
               onPostDismiss={onPostDismiss}
               className={classNames({
                 readed,
-                selectedPost: selectedPost.id === post.id,
+                selectedPost: selectedPost?.id === post.id,
               })}
             />
           );
         })}
       </PostList>
     ) : (
-      <>
-        <span>No posts to show.</span>
-        <button type="button" onClick={onCheckForUpdates}>
-          Check Updates
-        </button>
-      </>
+      <NoPostsNotification onPostsRefresh={onCheckForUpdates} />
     );
 
   const mainContent = isFetching ? <span>Retrieving posts...</span> : postList;
@@ -76,23 +72,29 @@ const Sidebar = ({ onHideSidebar, ...props }) => {
     <aside {...props}>
       <header>
         <div className="topButtonsContainer">
-          <button
-            type="button"
-            onClick={onHideSidebar}
-            className="closeSidebarButton"
-          >
-            ✖️
-          </button>
-          <button
-            type="button"
-            onClick={onDismissAll}
-            className="dimissAllButton"
-          >
-            Dismiss All
-          </button>
+          <div className="leftPanel">
+            <button
+              type="button"
+              onClick={onHideSidebar}
+              className="closeSidebarButton"
+            >
+              ✖️
+            </button>
+          </div>
+          <div className="rightPanel">
+            <button type="button" onClick={onCheckForUpdates}>
+              Refresh
+            </button>
+            <button
+              type="button"
+              onClick={onDismissAll}
+              className="dimissAllButton"
+            >
+              Dismiss All
+            </button>
+          </div>
         </div>
-
-        <h1>Top Posts {isSingleColumnMode ? "(SC)" : "(DC)"}</h1>
+        <h1>Top Posts</h1>
       </header>
       {mainContent}
     </aside>

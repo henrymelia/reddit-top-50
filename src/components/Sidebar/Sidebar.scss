@@ -2,6 +2,14 @@
   display: flex;
   justify-content: space-between;
 
+  .leftPanel {
+    text-align: left;
+  }
+
+  .rightPanel {
+    text-align: right;
+  }
+
   .closeSidebarButton {
     font-size: 1.5rem;
     padding: 0.6rem;
