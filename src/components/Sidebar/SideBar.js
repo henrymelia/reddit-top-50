@@ -15,24 +15,15 @@ import PostListItem from "./PostList/PostListItem";
 const singleColMediaQuery = "(max-width: 60rem)";
 
 const Sidebar = ({ onHideSidebar, ...props }) => {
-  const [
-    posts,
-    isFetching,
-    selectedPost,
-    dismissedIdList,
-  ] = useSelector((state) => [
+  const [posts, isFetching, selectedPost] = useSelector((state) => [
     state.posts.postList,
     state.posts.pending,
     state.posts.selectedPost,
-    state.posts.dismissedIdList,
   ]);
   const dispatch = useDispatch();
   const isSingleColumnMode = useMediaQuery(singleColMediaQuery);
 
-  console.log("dismissedIdList", dismissedIdList);
-
   useEffect(() => {
-    console.log("fetching...");
     if (posts.length < 1) {
       dispatch(fetchPosts());
     }
