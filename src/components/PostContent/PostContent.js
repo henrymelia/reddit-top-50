@@ -2,18 +2,20 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import ByAuthor from "../ByAuthor";
 import TimeElapsed from "../TimeElapsed";
+import ImagePost from "../ImagePost";
+
+import "./PostContent.scss";
 
 const getPostContent = (post) => {
   const { thumbnail, type, url } = post;
+
   switch (type) {
     case "image":
-      return url ? (
-        <img style={{ maxWidth: "100%" }} alt="Full Size" src={url} />
-      ) : null;
+      return url ? <ImagePost key={url} imageUrl={url} /> : null;
     case "link":
       return (
         <a href={url} target="_blank" rel="noreferrer">
-          <img alt="" src={thumbnail} />
+          <img key={thumbnail} alt="" src={thumbnail} />
           {url}
         </a>
       );
