@@ -1,15 +1,14 @@
 import React from "react";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import rootReducer from "../../reducers/root-reducer";
+import { PersistGate } from "redux-persist/integration/react";
 import Layout from "../Layout/Layout";
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
+import { store, persistor } from "../../store";
 
 const App = () => (
   <Provider store={store}>
-    <Layout />
+    <PersistGate loading={null} persistor={persistor}>
+      <Layout />
+    </PersistGate>
   </Provider>
 );
 
