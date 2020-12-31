@@ -32,6 +32,7 @@ const Layout = () => {
         markPostAsReaded={(post) => {
           dispatch(setReadedPost(post));
         }}
+        aria-label="Main Content"
       />
     </>
   );
