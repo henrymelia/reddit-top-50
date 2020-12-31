@@ -6,7 +6,7 @@ import {
   DISMISS_POST,
   SET_READED_POST,
   DISMISS_ALL_POSTS,
-} from "../actions/posts-actions";
+} from "../actions/posts-actions-types";
 
 const initialState = {
   dismissedIdList: [],
