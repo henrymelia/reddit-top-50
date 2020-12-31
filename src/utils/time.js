@@ -19,7 +19,7 @@ export const readableElapsedTimeUTC = (sinceTime) => {
   const unit = timeUnits.find((u) => diff <= u.threshold * u.ms);
   const t = Math.floor(diff / unit.ms);
 
-  if (unit.name === "second") {
+  if (unit.name === "second" || (unit.name === "minute" && t === 0)) {
     return "just now";
   }
 
