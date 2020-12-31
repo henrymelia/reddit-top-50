@@ -32,7 +32,9 @@ const PostContent = ({ post, markPostAsReaded, ...otherProps }) => {
   const { author, createdUTC, title } = post;
 
   useEffect(() => {
-    markPostAsReaded(post); // This fn can be called using a cancellable debounce.
+    if (markPostAsReaded) {
+      markPostAsReaded(post); // This fn can be called using a cancellable debounce.
+    }
   });
 
   return (
