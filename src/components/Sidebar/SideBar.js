@@ -58,6 +58,7 @@ const Sidebar = ({ onHideSidebar, ...props }) => {
                 readed,
                 selectedPost: selectedPost?.id === post.id,
               })}
+              data-testid={id}
             />
           );
         })}
