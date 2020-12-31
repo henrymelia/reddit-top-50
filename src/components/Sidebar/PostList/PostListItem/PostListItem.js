@@ -12,9 +12,9 @@ const PostListItem = ({ post, onPostSelect, onPostDismiss, ...otherProps }) => {
 
   return (
     <li {...otherProps}>
-      <a role="button" onClick={() => onPostSelect(post)}>
+      <a role="button" title={title} onClick={() => onPostSelect(post)}>
         <figure>
-          {thumbnail ? <img alt="Post X" src={thumbnail} /> : null}
+          {thumbnail ? <img alt={title} src={thumbnail} /> : null}
         </figure>
         <div>
           <small
@@ -44,7 +44,6 @@ const PostListItem = ({ post, onPostSelect, onPostDismiss, ...otherProps }) => {
 };
 
 PostListItem.propTypes = {
-  className: PropTypes.string,
   post: PropTypes.shape({
     author: PropTypes.string.isRequired,
     commentCount: PropTypes.number,
@@ -52,9 +51,9 @@ PostListItem.propTypes = {
     readed: PropTypes.bool,
     thumbnail: PropTypes.string,
     title: PropTypes.string,
-  }),
-  onPostSelect: PropTypes.func,
-  onPostDismiss: PropTypes.func,
+  }).isRequired,
+  onPostSelect: PropTypes.func.isRequired,
+  onPostDismiss: PropTypes.func.isRequired,
 };
 
 export default PostListItem;

@@ -6,16 +6,18 @@ const NoPostsNotification = ({ onPostsRefresh, ...otherProps }) => (
     <div>
       <span>No posts to show.</span>
     </div>
-    <div>
-      <button type="button" onClick={onPostsRefresh}>
-        Check Updates
-      </button>
-    </div>
+    {onPostsRefresh ? (
+      <div>
+        <button type="button" onClick={onPostsRefresh}>
+          Check Updates
+        </button>
+      </div>
+    ) : null}
   </div>
 );
 
 NoPostsNotification.propTypes = {
-  onPostsRefresh: PropTypes.func,
+  onPostsRefresh: PropTypes.func.isRequired,
 };
 
 export default NoPostsNotification;
