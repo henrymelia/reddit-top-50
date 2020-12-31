@@ -1,11 +1,11 @@
-import postsAdapter from "../adapters";
+import { postsAdapter } from "../adapters";
 import * as types from "./posts-actions-types";
 
-const fetchPostsStartedAction = () => ({
+export const fetchPostsStartedAction = () => ({
   type: types.FETCH_POSTS_STARTED,
 });
 
-const fetchPostsSuccessAction = (posts) => ({
+export const fetchPostsSuccessAction = (posts) => ({
   type: types.FETCH_POSTS_SUCCESS,
   payload: posts,
 });
