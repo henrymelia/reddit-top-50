@@ -9,10 +9,8 @@ const useMediaQuery = (query) => {
     mediaMatch.addEventListener("change", handler);
     return () => mediaMatch.removeEventListener("change", handler);
   });
+
   return matches;
 };
-
-export const useMediaQueryWidthBelow = (width) =>
-  useMediaQuery(`(max-width: ${width})`);
 
 export default useMediaQuery;
