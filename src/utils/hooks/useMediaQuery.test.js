@@ -7,11 +7,10 @@ describe("useMediaQuery Custom Hook", () => {
 
   beforeAll(() => {
     window.matchMedia = () => ({
-      // eslint-disable-next-line no-unused-vars
-      addEventListener: (eventType, handler) => {
+      addListener: (handler) => {
         clickHandler = handler;
       },
-      removeEventListener: () => {},
+      removeListener: () => {},
       matches: false,
     });
   });

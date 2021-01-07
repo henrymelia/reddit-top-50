@@ -6,8 +6,13 @@ const useMediaQuery = (query) => {
 
   useEffect(() => {
     const handler = (e) => setMatches(e.matches);
-    mediaMatch.addEventListener("change", handler);
-    return () => mediaMatch.removeEventListener("change", handler);
+
+    // addListener has been deprecated and addEventListener should be used instead.
+    // mediaMatch.addEventListener("change", handler);
+    mediaMatch.addListener(handler);
+    // removeListener has been deprecated and removeEventlistener should be used instead.
+    // return () => mediaMatch.removeEventListener("change", handler);
+    return () => mediaMatch.removeListener(handler);
   });
 
   return matches;
