@@ -33,3 +33,4 @@ Again, being in the project root directory, run:
 ```bash
 yarn dev
 ```
+This Yarn task will build the app in development mode and serve it. A link will be provided by the script output.
