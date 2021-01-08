@@ -7,8 +7,6 @@
   Reddit Top 50
 </h1>
 
-A simple app to check the top 50 Reddit posts.
-
 ## Local environment setup
 
 ### Requirements
