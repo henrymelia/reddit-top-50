@@ -8,3 +8,30 @@
 </h1>
 
 A simple app to check the top 50 Reddit posts.
+
+## Local environment setup
+
+### Requirements
+
+Install the latest Yarn version for your OS from https://classic.yarnpkg.com/en/docs/install/.
+
+### Clone this repository
+
+Running the following command:
+```bash
+git clone git@github.com:henrymelia/reddit-top-50.git
+```
+
+### Install the project dependencies
+
+Being in the project root directory, just run:
+```bash
+yarn install
+```
+
+### Run it
+
+Again, being in the project root directory, run:
+```bash
+yarn dev
+```
