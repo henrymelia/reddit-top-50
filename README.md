@@ -34,3 +34,14 @@ Again, being in the project root directory, run:
 yarn dev
 ```
 This Yarn task will build the app in development mode and serve it. A link will be provided by the script output.
+
+## Yarn tasks
+
+The following is a list of the available tasks with a brief description for each of them:
+
+- `yarn build` to build the app for production.
+- `yarn dev` to build the app in development mode and run the local server.
+- `yarn lint` lint the code and report the issues found.
+- `yarn test` run unit tests.
+- `yarn test:coverage` generate the unit tests coverage report.
+- `yarn test:watch` run unit tests in watch mode.
