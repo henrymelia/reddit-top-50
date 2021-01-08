@@ -45,3 +45,7 @@ The following is a list of the available tasks with a brief description for each
 - `yarn test` run unit tests.
 - `yarn test:coverage` generate the unit tests coverage report.
 - `yarn test:watch` run unit tests in watch mode.
+
+## Architecture details
+
+I've picked **Parcel** as the project bundler for the sake of simplicity and because it seemed to be enough for this small project. **ESLint** has been integrated and configured to use **Airbnb's** configuration as a base, while **Prettier** is used for code formatting. Regarding code transpilation, **Babel** is using the `@babel/preset-env` preset in order to transform the syntax and include the required polyfills for the browsers targetted by the **browserlist** configuration in the project's `package.json` file.
